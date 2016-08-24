@@ -1,0 +1,21 @@
+language: go
+sudo: required
+go:
+  - 1.7
+env:
+  global:
+
+before_script:
+  - sleep 1
+
+services:
+  - docker
+
+before_install:
+
+script:
+  - go get ./...
+  - ( cd server/ && go build -o PowerController )
+
+#after_success:
+#  - travis/send_to_docker_hub.sh
