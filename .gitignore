@@ -1,0 +1,3 @@
+server/sqlite.db
+server/config.yaml
+client.py
