@@ -1,0 +1,13 @@
+version: '2'
+services:
+
+  mqtt:
+    image: toke/mosquitto:latest
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+
+  powercontroll:
+    image: gregdistefano/powercontroll:latest
+    ports:
+      - "80:8080"
