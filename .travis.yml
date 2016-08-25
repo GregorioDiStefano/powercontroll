@@ -17,5 +17,9 @@ script:
   - go get ./...
   - ( cd server/ && go build -o PowerController )
 
-#after_success:
-#  - travis/send_to_docker_hub.sh
+after_success:
+  - cd server
+  - sudo docker login -u gregdistefano -p $DOCKER_PASSWORD
+  - sudo docker build -t gregdistefano/powercontroll .
+  - sudo docker tag gregdistefano/powercontroll gregdistefano/powercontroll:latest 
+  - sudo docker push gregdistefano/powercontroll:latest 
